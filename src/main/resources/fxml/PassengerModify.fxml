@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="420" prefWidth="530.0" xmlns="http://javafx.com/javafx/8.0.112"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="bl.controllers.PassengerModifyContr">
+    <children>
+        <VBox layoutX="84.0" layoutY="30.0" spacing="20">
+            <children>
+                <GridPane prefHeight="339.0" prefWidth="339.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="192.0" minWidth="10.0" prefWidth="149.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="262.0" minWidth="10.0" prefWidth="247.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints prefHeight="40.0" vgrow="SOMETIMES"/>
+                        <RowConstraints prefHeight="40.0" vgrow="SOMETIMES"/>
+                        <RowConstraints prefHeight="40.0" vgrow="SOMETIMES"/>
+                        <RowConstraints prefHeight="40.0" vgrow="SOMETIMES"/>
+                        <RowConstraints prefHeight="40.0"/>
+                        <RowConstraints prefHeight="40.0"/>
+                        <RowConstraints prefHeight="40.0"/>
+                        <RowConstraints prefHeight="40.0"/>
+
+
+                    </rowConstraints>
+                    <children>
+                        <TextField fx:id="flightNumberTField" GridPane.columnIndex="1"/>
+                        <TextField fx:id="firstNameTField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <TextField fx:id="lastNameTField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        <TextField fx:id="nationalityTField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                        <TextField fx:id="passportTField" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                        <TextField fx:id="birthdayTField" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                            <tooltip>
+                                <Tooltip fx:id="birthdayPattern" text="follow this pattern: YYYY/MM/DD"/>
+                            </tooltip>
+                        </TextField>
+
+                        <Label text="flightNumber:"/>
+                        <Label text="first name:" GridPane.rowIndex="1"/>
+                        <Label text="last name:" GridPane.rowIndex="2"/>
+                        <Label text="nationality:" GridPane.rowIndex="3"/>
+                        <Label text="passport:" GridPane.rowIndex="4"/>
+                        <Label text="birthday:" GridPane.rowIndex="5"/>
+                        <Label text="gender:" GridPane.rowIndex="6"/>
+                        <Label text="class:" GridPane.rowIndex="7"/>
+                        <ChoiceBox fx:id="genderChBox" prefWidth="150.0" GridPane.columnIndex="1"
+                                   GridPane.rowIndex="6"/>
+                        <ChoiceBox fx:id="classChBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+
+                    </children>
+
+                </GridPane>
+                <HBox>
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#closeWin" prefWidth="90.0" text="cancel">
+                            <graphic>
+                                <ImageView fitHeight="16" fitWidth="16" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="/icons/cancel.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <HBox.margin>
+                                <Insets left="40.0"/>
+                            </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#saveToPassengers" prefHeight="26.0" prefWidth="90.0"
+                                text="OK">
+                            <graphic>
+                                <ImageView fitHeight="16" fitWidth="16" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="/icons/OK.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <HBox.margin>
+                                <Insets left="120.0"/>
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

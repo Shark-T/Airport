@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="bl.controllers.FlightSearchContr">
+    <children>
+        <HBox layoutX="22.0" layoutY="28.0" prefHeight="504.0" prefWidth="785.0" spacing="20">
+            <children>
+                <VBox>
+                    <children>
+                        <GridPane prefHeight="102.0" prefWidth="190.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="89.0" minWidth="10.0" prefWidth="72.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="135.0" minWidth="10.0"
+                                                   prefWidth="118.0"/>
+
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="374.0" minHeight="10.0" prefHeight="17.0" vgrow="SOMETIMES"/>
+                                <RowConstraints maxHeight="411.0" minHeight="10.0" prefHeight="58.0" vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <children>
+                                <TextField fx:id="searchByFlight" prefHeight="26.0" prefWidth="108.0"
+                                           GridPane.columnIndex="1">
+                                    <GridPane.margin>
+                                        <Insets top="70.0"/>
+                                    </GridPane.margin>
+                                </TextField>
+                                <Label prefHeight="16.0" prefWidth="150" text="Flight ¹">
+                                    <GridPane.margin>
+                                        <Insets left="10.0" top="70.0"/>
+                                    </GridPane.margin>
+                                </Label>
+                            </children>
+                        </GridPane>
+                        <Label alignment="CENTER" prefHeight="50.0" prefWidth="178.0" text="Price limits">
+                            <VBox.margin>
+                                <Insets left="10.0"/>
+                            </VBox.margin>
+                        </Label>
+                        <HBox prefHeight="36.0" prefWidth="33.0" spacing="30.0">
+                            <children>
+                                <TextField fx:id="lowerLim" promptText="min limit">
+                                    <tooltip>
+                                        <Tooltip
+                                                text="minimum price limit for quick filter, should contain only digits"/>
+                                    </tooltip>
+                                </TextField>
+                                <TextField fx:id="upperLim" promptText="max limit">
+                                    <tooltip>
+                                        <Tooltip
+                                                text="maximum price limit for quick filter, should contain only digits"/>
+                                    </tooltip>
+                                </TextField>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="10.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <Button mnemonicParsing="false" onAction="#showDetails" text="details">
+                            <graphic>
+                                <ImageView fitHeight="16" fitWidth="16" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="/icons/list.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <VBox.margin>
+                                <Insets left="110.0" top="30.0"/>
+                            </VBox.margin>
+                        </Button>
+                    </children>
+                </VBox>
+                <TableView fx:id="flightsTable" prefHeight="514.0" prefWidth="560.0">
+                    <columns>
+                        <TableColumn prefWidth="120.0" text="flightNumber No">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="flightNumber"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="220" text="route">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="route"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="200" style="-fx-alignment: CENTER;" text="passengers count">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="sumPsngrCount"/>
+                            </cellValueFactory>
+                        </TableColumn>
+
+                    </columns>
+                    <contextMenu>
+                        <ContextMenu fx:id="contextMenu">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#showDetails" text="details"/>
+                            </items>
+                        </ContextMenu>
+                    </contextMenu>
+                </TableView>
+            </children>
+        </HBox>
+        <HBox layoutY="530" prefHeight="50" prefWidth="800">
+            <children>
+                <Button cancelButton="true" mnemonicParsing="false" onAction="#closeWin" prefWidth="90" text="OK">
+                    <graphic>
+                        <ImageView fitHeight="16" fitWidth="16" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="/icons/OK.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <HBox.margin>
+                        <Insets left="700.0" top="20.0"/>
+                    </HBox.margin>
+                </Button>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

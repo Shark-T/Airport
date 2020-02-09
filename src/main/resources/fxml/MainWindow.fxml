@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane fx:id="mainWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="670" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.112"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="bl.controllers.MainWindowContr">
+    <children>
+        <HBox layoutX="28.0" layoutY="92.0" prefHeight="530" prefWidth="977.0">
+            <children>
+                <VBox prefHeight="52.0" prefWidth="271.0" spacing="10">
+                    <children>
+                        <VBox fx:id="sidebar" spacing="20">
+                            <children>
+                                <VBox prefHeight="88.0" prefWidth="271.0" spacing="20">
+                                    <children>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0"
+                                               prefWidth="271.0" text="Quick Search:" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="System Bold" size="14.0"/>
+                                            </font>
+                                            <VBox.margin>
+                                                <Insets bottom="-5.0"/>
+                                            </VBox.margin>
+                                        </Label>
+                                        <TextField fx:id="searchByFlight" focusTraversable="false"
+                                                   promptText="search by flightNumber" style="-fx-pref-width: 40;">
+                                            <VBox.margin>
+                                                <Insets left="20.0" right="20.0"/>
+                                            </VBox.margin>
+                                        </TextField>
+                                        <TextField fx:id="searchByAirport" focusTraversable="false"
+                                                   promptText="search by name" style="-fx-pref-width: 40;">
+                                            <VBox.margin>
+                                                <Insets left="20.0" right="20.0"/>
+                                            </VBox.margin>
+                                        </TextField>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets bottom="40.0"/>
+                                    </VBox.margin>
+                                </VBox>
+                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="271.0"
+                                       text="Login as company staff:" textAlignment="CENTER">
+                                    <font>
+                                        <Font name="System Bold" size="14.0"/>
+                                    </font>
+                                </Label>
+                                <HBox prefHeight="0.0" prefWidth="271.0">
+                                    <children>
+                                        <Label prefHeight="16.0" prefWidth="80.0" text="Login">
+                                            <HBox.margin>
+                                                <Insets/>
+                                            </HBox.margin>
+                                        </Label>
+                                        <TextField fx:id="loginInput" onKeyPressed="#sendForm" prefHeight="26.0"/>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets top="-5.0"/>
+                                    </VBox.margin>
+                                </HBox>
+                                <HBox prefWidth="220.0">
+                                    <children>
+                                        <Label prefHeight="16.0" prefWidth="80.0" text="Password">
+                                            <HBox.margin>
+                                                <Insets/>
+                                            </HBox.margin>
+                                        </Label>
+                                        <PasswordField fx:id="passwdInput" onKeyPressed="#sendForm" prefHeight="26.0"/>
+                                    </children>
+                                    <opaqueInsets>
+                                        <Insets bottom="50.0" left="50.0"/>
+                                    </opaqueInsets>
+                                </HBox>
+                                <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#chownRoot" prefHeight="26.0"
+                                        prefWidth="104.0" text="login">
+                                    <VBox.margin>
+                                        <Insets left="80.0"/>
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                        </VBox>
+                    </children>
+                    <opaqueInsets>
+                        <Insets/>
+                    </opaqueInsets>
+                </VBox>
+                <TabPane fx:id="tabPane" prefHeight="452" prefWidth="706.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                        <Tab id="arrival" fx:id="arrivalTab" text=" arrival  ">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <TableView fx:id="arrivalTable" layoutX="29.0" layoutY="-24.0"
+                                                   prefHeight="452" prefWidth="706.0" AnchorPane.bottomAnchor="0.0"
+                                                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                                   AnchorPane.topAnchor="0.0">
+                                            <columns>
+                                                <TableColumn id="flightNumber" prefWidth="135.0" text="flightNumber">
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="flightNumber"/>
+                                                    </cellValueFactory>
+                                                </TableColumn>
+
+                                                <TableColumn id="airportName" prefWidth="210" text="airport">
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="airportName"/>
+                                                    </cellValueFactory>
+                                                </TableColumn>
+                                                <TableColumn id="time" minWidth="140.0" prefWidth="144.0"
+                                                             text="time of arrival" style="-fx-alignment: CENTER;">
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="time"/>
+                                                    </cellValueFactory>
+                                                </TableColumn>
+                                                <TableColumn id="terminal" prefWidth="100.0" text="terminal"
+                                                             style="-fx-alignment: CENTER;">
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="terminal"/>
+                                                    </cellValueFactory>
+                                                </TableColumn>
+                                                <TableColumn id="status" prefWidth="115.0" text="status">
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="status"/>
+                                                    </cellValueFactory>
+                                                </TableColumn>
+
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab id="depature" fx:id="depatureTab" text="  depature  ">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <TableView fx:id="depatureTable" layoutX="94.0" layoutY="46.0"
+                                                   prefHeight="452" prefWidth="706.0" AnchorPane.bottomAnchor="0.0"
+                                                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                                   AnchorPane.topAnchor="0.0">
+                                            <columns>
+                                                <TableColumn prefWidth="135.0" text="flightNumber">
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="flightNumber"/>
+                                                    </cellValueFactory>
+                                                </TableColumn>
+                                                <TableColumn prefWidth="210" text="airport">
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="airportName"/>
+                                                    </cellValueFactory>
+                                                </TableColumn>
+                                                <TableColumn prefWidth="140.0" text="time of depature"
+                                                             style="-fx-alignment: CENTER;">
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="time"/>
+                                                    </cellValueFactory>
+                                                </TableColumn>
+                                                <TableColumn prefWidth="100.0" text="terminal"
+                                                             style="-fx-alignment: CENTER;">
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="terminal"/>
+                                                    </cellValueFactory>
+                                                </TableColumn>
+                                                <TableColumn prefWidth="115.0" text="status">
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="status"/>
+                                                    </cellValueFactory>
+                                                </TableColumn>
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+            </children>
+        </HBox>
+        <Label alignment="CENTER" contentDisplay="TOP" depthTest="DISABLE" layoutX="2.0" layoutY="1.0" prefHeight="20.0"
+               prefWidth="1024.0" style="-fx-padding: 30 0 0 0;" text="WELCOME TO SUNRISE AIRPORT!"
+               textAlignment="CENTER">
+            <font>
+                <Font name="Ubuntu" size="29.0"/>
+            </font>
+            <opaqueInsets>
+                <Insets/>
+            </opaqueInsets>
+        </Label>
+        <Label alignment="CENTER" layoutX="3.0" layoutY="630" prefHeight="16.0" prefWidth="1024.0"
+               text="created by Andrew Sotnikov, 2017">
+            <font>
+                <Font size="20.0"/>
+            </font>
+        </Label>
+        <MenuBar fx:id="rootMenu" prefWidth="1024"
+                 style="-fx-border-insets: 10 10 10 10; -fx-background-color: LightBlue;" visible="false">
+
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#quitRoot" text="Sign out"/>
+                        <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Quit"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Search">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#flightSearchWin" text="Flight search"/>
+                    </items>
+                    <SeparatorMenuItem/>
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#passengerSearchWin" text="Passenger search"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About" onAction="#showAboutMe"/>
+                    </items>
+                </Menu>
+            </menus>
+            <opaqueInsets>
+                <Insets bottom="20.0"/>
+            </opaqueInsets>
+        </MenuBar>
+    </children>
+</AnchorPane>
